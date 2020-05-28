@@ -1,0 +1,43 @@
+@import '~bootstrap/scss/bootstrap';
+
+$primary-color: green;
+$white: white;
+$black: black;
+
+.navbar {
+  margin-bottom: 0;
+  background: $black;
+}
+body {
+  background: url('../../assets/images/bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: $white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+h1,
+h2 {
+  font-weight: bold;
+}
+p {
+  font-size: 16px;
+  color: $white;
+}
+a:visited {
+  color: $black;
+}
+
+.link {
+  color: $white;
+}
+.btn-primary {
+  color: $white;
+  border-color: $white;
+  margin-bottom: 5px;
+}
+.btn-sm {
+  background-color: $white;
+  display: inline-block;
+}
