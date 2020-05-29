@@ -1,7 +1,7 @@
-class CreateTrivia < ActiveRecord::Migration[6.0]
+class CreateQuestions < ActiveRecord::Migration[6.0]
   def change
-    create_table :trivia do |t|
-      t.string :question
+    create_table :questions do |t|
+      t.string :description
       t.string :answer
       t.string :bad_answer_one
       t.string :bad_answer_two
@@ -12,7 +12,7 @@ class CreateTrivia < ActiveRecord::Migration[6.0]
       t.integer :user_id
       t.timestamps
     end
-    add_index :trivia, :question_id
-    add_index :trivia, :user_id
+    add_index :questions, :question_id
+    add_index :questions, :user_id
   end
 end
