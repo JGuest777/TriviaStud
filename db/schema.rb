@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_201416) do
+ActiveRecord::Schema.define(version: 2020_05_28_233431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "trivia", force: :cascade do |t|
+    t.string "question"
+    t.string "answer"
+    t.string "bad_answer_one"
+    t.string "bad_answer_two"
+    t.boolean "is_correct"
+    t.integer "score"
+    t.string "category"
+    t.integer "question_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_trivia_on_question_id"
+    t.index ["user_id"], name: "index_trivia_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
