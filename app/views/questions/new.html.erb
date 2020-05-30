@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="login-container text-center">
+  <div class="ghostly-container text-center">
     <h1>Create Trivia</h1>
 
     <%= simple_form_for @question do |f| %>
@@ -13,16 +13,16 @@
       <%= f.submit 'Create', class: 'btn btn-danger' %>
     <% end %>
 
-        <hr />
+      <hr />
 
-<div class="container">
-    <% if flash[:error].present? %>
-      <div class="col-10 offset-1 alert alert-danger">
-        <%= flash[:error].html_safe %>
-      </div>
-    <% end %>
-    <%= yield %>
-</div>
+    <div class="container">
+      <% if flash[:error].present? %>
+        <div class="col-10 offset-1 alert alert-danger">
+          <%= flash[:error].html_safe %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
   </div>
 </div>
 
