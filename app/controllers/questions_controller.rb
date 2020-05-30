@@ -2,11 +2,14 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!
   
   def index
+    @categories = Question.categories
 
     if params[:tag]
-      @questions = Question.tagged_with(params[:tag])
+      @questions = Question.available(current_user.id).tagged_with(params[:tag])
+    elsif params[:filter]
+      @questions = Question.available(current_user.id).where(category:params[:filter])
     else
-      @questions = Question.all
+      @questions = Question.available(current_user.id)
     end
 
   end

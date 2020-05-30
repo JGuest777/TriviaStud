@@ -8,6 +8,11 @@
         <%= link_to tag.name, tag_path(tag.name), class: css_class %>
       <% end %>
     </div>
+      <%= form_tag root_path, method: :get do %>
+      <%= select_tag :filter, options_for_select( @categories.map {|category| [category, category]}) %>
+      <%= submit_tag 'Filter', class: 'btn btn-danger' %>
+      <% end %>
+
     <br />
 
     <div>
@@ -16,6 +21,7 @@
         <p><%= question.user_id %></p>
       <% end %>
     </div>
+
    
     
   </div>
