@@ -7,6 +7,13 @@ class QuestionsController < ApplicationController
     else
       @questions = Question.all
     end
+
+     if params["search"]
+      
+    else
+      @questions = Question.all
+    end
+
   end
 
   def new
