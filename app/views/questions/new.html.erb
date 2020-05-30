@@ -12,8 +12,6 @@
       <br /> 
       <%= f.submit 'Create', class: 'btn btn-danger' %>
     <% end %>
-    <p><%= current_user.id %></p>
-    <p><%= @question.user_id %></p>
       <hr />
 
     <div class="container">
@@ -21,6 +19,10 @@
         <div class="col-10 offset-1 alert alert-danger">
           <%= flash[:error].html_safe %>
         </div>
+      <% end %>
+      <% if flash[:success].present? %>
+        <div class="col-10 offset-1 alert alert-danger">
+          <%= flash[:success].html_safe %>
       <% end %>
       <%= yield %>
     </div>

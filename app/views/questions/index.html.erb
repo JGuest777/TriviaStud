@@ -1,6 +1,6 @@
 <div class="container">
   <div class="ghostly-container text-center">
-    <h1>Are you a Trivia stud?</h1>
+    <h1>Are you a Sports Trivia Stud?</h1>
     <br />
     
      <div class="container text-center" id="tag_cloud">
@@ -8,6 +8,9 @@
         <%= link_to tag.name, tag_path(tag.name), class: css_class %>
       <% end %>
     </div>
+
+    <br />
+    
       <%= form_tag root_path, method: :get do %>
       <%= select_tag :filter, options_for_select( @categories.map {|category| [category, category]}) %>
       <%= submit_tag 'Filter', class: 'btn btn-danger' %>
@@ -17,8 +20,9 @@
 
     <div>
       <% @questions.each do |question| %>
-        <p><%= link_to question.description, question %></p>
-        <p><%= question.user_id %></p>
+        <div class="ghostly-container text-center">
+          <h4><%= link_to question.description, question %></h4>
+        </div>
       <% end %>
     </div>
 

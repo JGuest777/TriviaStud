@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!
   
   def index
+    
     @categories = Question.categories
 
     if params[:tag]
@@ -23,6 +24,7 @@ class QuestionsController < ApplicationController
     if @question.invalid?
       flash[:error] = '<strong>Could not save!</strong> the data you entered is invalid. Please fill out all required.'
     end
+    flash[:success] = '<strong>Your Trivia was saved!</strong>'
     redirect_to new_question_path
   end
 
