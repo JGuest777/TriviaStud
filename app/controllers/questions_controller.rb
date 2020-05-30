@@ -2,14 +2,9 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!
   
   def index
+
     if params[:tag]
       @questions = Question.tagged_with(params[:tag])
-    else
-      @questions = Question.all
-    end
-
-     if params["search"]
-      
     else
       @questions = Question.all
     end
@@ -21,7 +16,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.create(questions_params)
+    @question = current_user.questions.create(questions_params)
     if @question.invalid?
       flash[:error] = '<strong>Could not save!</strong> the data you entered is invalid. Please fill out all required.'
     end
@@ -35,6 +30,6 @@ class QuestionsController < ApplicationController
   private
 
   def questions_params
-    params.require(:question).permit(:description, :answer, :bad_answer_one, :bad_answer_two, :category, :tag_list)
+    params.require(:question).permit(:description, :answer, :bad_answer_one, :bad_answer_two, :category, :tag_list, :user_id)
   end
 end

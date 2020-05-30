@@ -13,18 +13,10 @@
     <div>
       <% @questions.each do |question| %>
         <p><%= link_to question.description, question %></p>
-        
+        <p><%= question.user_id %></p>
       <% end %>
     </div>
    
-    <%= simple_form_for @questions do |f| %>
-      <%= f.input :category, label: 'Category:', collection: Question::CATEGORIES, :prompt => "Filter Trivia by Category", value_method: :first %>
-      
-      <br />
-      <%= f.submit 'Filter', class: 'btn btn-danger' %>
-    <% end %>
-
-
-
+    
   </div>
 </div>

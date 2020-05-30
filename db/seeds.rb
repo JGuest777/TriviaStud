@@ -44,12 +44,12 @@
 #   )
 # end
 
-2.times do |i|
-  Question.create(
-    description: "Football question #{i + 1}",
-    answer: "This is the correct answer!",
-    bad_answer_one: "Not the right answer.",
-    bad_answer_two: "This is also not the right answer.",
-    category: 'Football'
-  )
-end
+# 2.times do |i|
+#   Question.create(
+#     description: "Football question #{i + 1}",
+#     answer: "This is the correct answer!",
+#     bad_answer_one: "Not the right answer.",
+#     bad_answer_two: "This is also not the right answer.",
+#     category: 'Football'
+#   )
+# end
