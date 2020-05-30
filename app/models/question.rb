@@ -1,6 +1,6 @@
 class Question < ApplicationRecord
   # has_many :users
-  # scope :available, -> { where.not(user_id: current_user.id) }
+  scope :available, -> (id) { where.not(user_id: id) }
 
   validates :description, presence: true, length: { maximum: 300, minimum: 3 }
   validates :answer, presence: true, length: { maximum: 300, minimum: 3 }
@@ -10,16 +10,9 @@ class Question < ApplicationRecord
 
   acts_as_taggable_on :tags
 
-  CATEGORIES = [
-    ['Soccer'],
-    ['Football'],
-    ['Baseball'],
-    ['Surfing'],
-    ['Skateboarding'],
-    ['Basketball'],
-    ['Hockey'],
-    ['Snowboarding'],
-    ['Snow Skiing'],
-    ['Swimming'],
-  ]
+  def self.categories
+    CATEGORIES
+  end
+
+  CATEGORIES = ['Football', 'Soccer', 'Surfing', 'Basketball', 'Snowboarding', 'Swimming', 'Baseball']
 end
