@@ -13,13 +13,10 @@
     <div>
       <% @questions.each do |question| %>
         <p><%= link_to question.description, question %></p>
-        
+        <p><%= question.user_id %></p>
       <% end %>
     </div>
    
-
-
-
-
+    
   </div>
 </div>

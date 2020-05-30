@@ -9,10 +9,11 @@
       <%= f.input :bad_answer_two, label: 'Wrong Answer #2:', placeholder: 'required' %>
       <%= f.input :category, label: 'Category:', collection: Question::CATEGORIES, :prompt => "Select a Category (required)", value_method: :first %>
       <%= f.input :tag_list, label: 'Tags (separate by commas)',placeholder: 'optional' %>
-      <br />
+      <br /> 
       <%= f.submit 'Create', class: 'btn btn-danger' %>
     <% end %>
-
+    <p><%= current_user.id %></p>
+    <p><%= @question.user_id %></p>
       <hr />
 
     <div class="container">
@@ -25,4 +26,3 @@
     </div>
   </div>
 </div>
-
