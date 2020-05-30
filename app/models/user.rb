@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_writer :login
+  attr_accessor :login
   has_many :questions
   
   validates :username, presence: :true, uniqueness: { case_sensitive: false }
