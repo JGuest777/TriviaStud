@@ -2,6 +2,12 @@ class QuestionsController < ApplicationController
     before_action :authenticate_user!
   
   def index
+    if params[:tag]
+      @question = Question.tagged_with(params[:tag])
+    else
+      @question = Question.all
+    end
+
     @question = Question.order("RANDOM()").first
   end
 
