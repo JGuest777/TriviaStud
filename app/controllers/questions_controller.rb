@@ -10,7 +10,10 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    Question.create(questions_params)
+    @question = Question.create(questions_params)
+    if @question.invalid?
+      flash[:error] = '<strong>Could not save!</strong> the data you entered is invalid. Please fill out all required.'
+    end
     redirect_to new_question_path
   end
 
@@ -21,6 +24,6 @@ class QuestionsController < ApplicationController
   private
 
   def questions_params
-    params.require(:question).permit(:description, :answer, :bad_answer_one, :bad_answer_two, :category)
+    params.require(:question).permit(:description, :answer, :bad_answer_one, :bad_answer_two, :category, :tag_list)
   end
 end

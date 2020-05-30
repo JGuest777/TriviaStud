@@ -1,15 +1,28 @@
 <div class="container">
-  <div class="text-center">
+  <div class="login-container text-center">
     <h1>Create Trivia</h1>
 
     <%= simple_form_for @question do |f| %>
-      <%= f.input :description %>
-      <%= f.input :answer %>
-      <%= f.input :bad_answer_one %>
-      <%= f.input :bad_answer_two %>
-      <%= f.input :category %>
+      <%= f.input :description, label: 'Trivia Question:', placeholder: 'required' %>
+      <%= f.input :answer, label: 'Correct Answer', placeholder: 'required' %>
+      <%= f.input :bad_answer_one, label: 'Wrong Answer #1:', placeholder: 'required' %>
+      <%= f.input :bad_answer_two, label: 'Wrong Answer #2:', placeholder: 'required' %>
+      <%= f.input :category, label: 'Category:', collection: Question::CATEGORIES, :prompt => "Select a Category (required)" %>
+      <%= f.input :tag_list, label: 'Tags (separate by commas)',placeholder: 'optional' %>
       <br />
       <%= f.submit 'Create', class: 'btn btn-danger' %>
     <% end %>
+
+        <hr />
+
+<div class="container">
+    <% if flash[:error].present? %>
+      <div class="col-10 offset-1 alert alert-danger">
+        <%= flash[:error].html_safe %>
+      </div>
+    <% end %>
+    <%= yield %>
+</div>
   </div>
 </div>
+
