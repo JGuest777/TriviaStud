@@ -1,14 +1,12 @@
 class QuestionsController < ApplicationController
-    before_action :authenticate_user!
+  before_action :authenticate_user!
   
   def index
     if params[:tag]
-      @question = Question.tagged_with(params[:tag])
+      @questions = Question.tagged_with(params[:tag])
     else
-      @question = Question.all
+      @questions = Question.all
     end
-
-    @question = Question.order("RANDOM()").first
   end
 
   def new
@@ -24,7 +22,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    # @question = Question.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   private

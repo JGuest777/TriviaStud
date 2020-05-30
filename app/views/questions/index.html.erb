@@ -2,32 +2,24 @@
   <div class="ghostly-container text-center">
     <h1>Are you a Trivia stud?</h1>
     <br />
+    
      <div class="container text-center" id="tag_cloud">
       <% tag_cloud Question.tag_counts, %w[s m l] do |tag, css_class| %>
         <%= link_to tag.name, tag_path(tag.name), class: css_class %>
       <% end %>
     </div>
     <br />
-    <p><b>Question:</b> <%= @question.description %></p>
 
-    <p><b>Answer:</b> <%= @question.answer %></p>
-
-    <p><b>FakeOne:</b> <%= @question.bad_answer_one %></p>
-
-    <p><b>FakeTwo:</b> <%= @question.bad_answer_two %></p>
-
-    <p><b>IsCorrect:</b> <%= @question.is_correct %></p>
-
-    <p><b>Score:</b> <%= @question.score %></p>
-
-    <p><b>Category:</b> <%= @question.category %></p>
-
+    <div>
+      <% @questions.each do |question| %>
+        <p><%= link_to question.description, question %></p>
+        
+      <% end %>
+    </div>
    
 
-    <p><b>Tags:</b> <%= raw @question.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
 
-    <p><b>QuestionID:</b> <%= @question.question_id %></p>
 
-    <p><b>UserID:</b> <%= @question.user_id %></p>
+
   </div>
 </div>
