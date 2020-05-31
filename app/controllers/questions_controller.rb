@@ -30,6 +30,9 @@ class QuestionsController < ApplicationController
 
   def show
     @questions = Question.find(params[:id])
+
+    @answers = [@questions.answer, @questions.bad_answer_one, @questions.bad_answer_two].shuffle!
+    
   end
 
   private

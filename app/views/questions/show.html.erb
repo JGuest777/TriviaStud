@@ -1,10 +1,15 @@
 <div class="container">
   <div class="ghostly-container text-center">
-    <% @question.each do |quest| %>
-      <%= quest.description %>
-      <%= quest.answer %>
-      <%= quest.bad_answer_one %>
-      <%= quest.bad_answer_two %>
+     <h1> <%= @questions.description %> </h1>
+    <br />
+
+    <% @answers.each do |answer_choice| %>
+      <%= simple_form_for @questions do |f| %>
+        <%= f.input :answer_choice %>
+        <%= f.input :answer_choice %>
+        <%= f.input :answer_choice %>
+        <%= f.button :submit %>
+      <% end %>
     <% end %>
   </div>
 </div>
