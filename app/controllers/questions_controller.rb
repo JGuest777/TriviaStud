@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = Question.new
+    @questions = Question.new
   end
 
   def create
@@ -29,7 +29,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+    @questions = Question.find(params[:id])
   end
 
   private

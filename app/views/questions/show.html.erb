@@ -1,5 +1,10 @@
 <div class="container">
   <div class="ghostly-container text-center">
-    <h1><%= @question.description %></h1>
+    <% @question.each do |quest| %>
+      <%= quest.description %>
+      <%= quest.answer %>
+      <%= quest.bad_answer_one %>
+      <%= quest.bad_answer_two %>
+    <% end %>
   </div>
 </div>
