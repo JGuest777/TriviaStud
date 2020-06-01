@@ -2,22 +2,17 @@
   <div class="ghostly-container text-center">
     <h1>Are you a Sports Trivia Stud?</h1>
     <br />
-    
      <div class="container text-center" id="tag_cloud">
       <% tag_cloud Question.tag_counts, %w[s m l] do |tag, css_class| %>
         <%= link_to tag.name, tag_path(tag.name), class: css_class %>
       <% end %>
     </div>
-
     <br />
-    
       <%= form_tag root_path, method: :get do %>
       <%= select_tag :filter, options_for_select( @categories.map {|category| [category, category]}), :prompt => "Select Trivia" %>
       <%= submit_tag 'Filter', class: 'btn btn-danger' %>
       <% end %>
-
     <br />
-
     <div>
       <% @questions.each do |question| %>
         <div class="ghostly-container text-center">
@@ -25,8 +20,5 @@
         </div>
       <% end %>
     </div>
-
-   
-    
   </div>
 </div>
