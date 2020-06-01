@@ -3,13 +3,12 @@
      <h1> <%= @questions.description %> </h1>
     <br />
 
-    <% @answers.each do |answer_choice| %>
+    
       <%= simple_form_for @questions do |f| %>
-        <%= f.input :answer_choice %>
-        <%= f.input :answer_choice %>
-        <%= f.input :answer_choice %>
+        <%= f.input :bad_answer_one, label: '', placeholder: '' %>
         <%= f.button :submit %>
       <% end %>
-    <% end %>
+
   </div>
+
 </div>

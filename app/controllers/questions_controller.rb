@@ -30,14 +30,11 @@ class QuestionsController < ApplicationController
 
   def show
     @questions = Question.find(params[:id])
-
-    @answers = [@questions.answer, @questions.bad_answer_one, @questions.bad_answer_two].shuffle!
-    
   end
 
   private
 
   def questions_params
-    params.require(:question).permit(:description, :answer, :bad_answer_one, :bad_answer_two, :category, :tag_list, :user_id)
+    params.require(:question).permit(:description, :answer, :category, :tag_list, :user_id)
   end
 end
