@@ -12,7 +12,7 @@
     <br />
     
       <%= form_tag root_path, method: :get do %>
-      <%= select_tag :filter, options_for_select( @categories.map {|category| [category, category]}) %>
+      <%= select_tag :filter, options_for_select( @categories.map {|category| [category, category]}), :prompt => "Select Trivia" %>
       <%= submit_tag 'Filter', class: 'btn btn-danger' %>
       <% end %>
 

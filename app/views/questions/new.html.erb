@@ -2,7 +2,7 @@
   <div class="ghostly-container text-center">
     <h1>Create Trivia</h1>
 
-    <%= simple_form_for @question do |f| %>
+    <%= simple_form_for @questions do |f| %>
       <%= f.input :description, label: 'Trivia Question:', placeholder: 'required' %>
       <%= f.input :answer, label: 'Correct Answer', placeholder: 'required' %>
       <%= f.input :category, label: 'Category:', collection: Question::CATEGORIES, :prompt => "Select a Category (required)", value_method: :first %>
