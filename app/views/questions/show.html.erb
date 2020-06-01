@@ -2,12 +2,12 @@
   <div class="ghostly-container text-center">
      <h1> <%= @questions.description %> </h1>
     <br />
-
+<%= simple_form_for @user do |f| %>
+      <%= f.input :selected_answer, label: 'Correct Answer', placeholder: 'required' %>
+      <br /> 
+      <%= f.submit 'Create', class: 'btn btn-danger' %>
+    <% end %>
     
-      <%= simple_form_for @questions do |f| %>
-        <%= f.input :bad_answer_one, label: '', placeholder: '' %>
-        <%= f.button :submit %>
-      <% end %>
 
   </div>
 
