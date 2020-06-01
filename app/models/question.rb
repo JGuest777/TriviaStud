@@ -1,5 +1,6 @@
 class Question < ApplicationRecord
-  # has_many :users
+  belongs_to :user
+  has_many :answers
   scope :available, -> (id) { where.not(user_id: id) }
 
   validates :description, presence: true, length: { maximum: 300, minimum: 3 }

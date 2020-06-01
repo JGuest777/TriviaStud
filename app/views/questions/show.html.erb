@@ -3,7 +3,22 @@
      <h1> <%= @questions.description %> </h1>
     <br />
     
+    <%= simple_form_for @answer, url: question_answers_path(current_user) do |f| %>
+      <%= f.input :submitted_answer %>
+      <%= f.submit "Submit your answer", class: 'btn btn-primary' %>
+    <% end %>
 
   </div>
-
+  <div class="container">
+      <% if flash[:error].present? %>
+        <div class="col-10 offset-1 alert alert-danger">
+          <%= flash[:error].html_safe %>
+        </div>
+      <% end %>
+      <% if flash[:success].present? %>
+        <div class="col-10 offset-1 alert alert-danger">
+          <%= flash[:success].html_safe %>
+      <% end %>
+      <%= yield %>
+    </div>
 </div>

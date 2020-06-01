@@ -32,7 +32,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @answer = Answer.new
     @questions = Question.find(params[:id])
   end
 
