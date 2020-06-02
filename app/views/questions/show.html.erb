@@ -1,9 +1,9 @@
 <div class="container">
   <div class="ghostly-container text-center">
-     <h1> <%= @questions.description %> </h1>
+    <h1> <%= @questions.description %> </h1>
     <br />
-    <%= simple_form_for @answer, url: question_answers_path(current_user) do |f| %>
-      <%= f.input :submitted_answer %>
+    <%= simple_form_for @answer, url: question_answers_path(current_question) do |f| %>
+      <%= f.input :submitted_answer, label: false, placeholder: 'Enter your answer here' %>
       <%= f.submit "Submit your answer", class: 'btn btn-primary' %>
     <% end %>
 

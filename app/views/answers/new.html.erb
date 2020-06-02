@@ -1,0 +1,17 @@
+  <div class="container">
+  <div class="ghostly-container text-center">
+
+  <% if @user_answer == @question.correct_answer %>
+  <h1> You were right!</h1>
+    <h3> Your answer: <%= @user_answer.submitted_answer %> </h3>
+    <br />
+    <h3> The correct answer: <%= @question.correct_answer %> </h3>
+  <% else %>
+    <h1>I'm sorry you were wrong, the right answer is:</h1>
+    <br />
+    <h3> <%= @question.correct_answer %> </h3>
+    <h3> Your answer was: <%= @user_answer.submitted_answer %> </h3>
+  <% end %>
+
+  </div>
+</div>

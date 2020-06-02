@@ -17,6 +17,9 @@
       <% @questions.each do |question| %>
         <div class="ghostly-container text-center">
           <h4><%= link_to question.description, question %></h4>
+          <div>
+            <%= question.user.username %> 
+          </div>
         </div>
       <% end %>
     </div>

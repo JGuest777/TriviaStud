@@ -4,7 +4,7 @@ class Question < ApplicationRecord
   scope :available, -> (id) { where.not(user_id: id) }
 
   validates :description, presence: true, length: { maximum: 300, minimum: 3 }
-  validates :answer, presence: true, length: { maximum: 300, minimum: 3 }
+  validates :correct_answer, presence: true, length: { maximum: 300, minimum: 3 }
   validates :category, presence: true
 
   acts_as_taggable_on :tags
